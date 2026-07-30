@@ -14,7 +14,7 @@
     </style>
 
     <!-- SplashScreen Theme -->
-    <style name="Theme.TechEvents.Splash" parent="Theme.SplashScreen">
+    <style name="Theme.TechEvents.Splash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="windowSplashScreenBackground">@color/surface_white</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_tech_logo</item>
         <item name="postSplashScreenTheme">@style/Theme.TechEvents</item>
