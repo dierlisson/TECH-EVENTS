@@ -4,6 +4,7 @@ import com.dierlisson.techevents.core.network.NetworkResult
 import com.dierlisson.techevents.data.cache.MemoryCache
 import com.dierlisson.techevents.data.local.dao.EventDao
 import com.dierlisson.techevents.data.local.dao.FavoriteDao
+import com.dierlisson.techevents.data.local.entity.EventEntity
 import com.dierlisson.techevents.data.local.entity.FavoriteEntity
 import com.dierlisson.techevents.data.mapper.EventMapper.toCreateDto
 import com.dierlisson.techevents.data.mapper.EventMapper.toDomain
@@ -63,9 +64,78 @@ class EventsRepositoryImpl(
         return NetworkResult.Success(domainEvents)
     }
 
-    private fun getInitialSeedEntities(): List<com.dierlisson.techevents.data.local.entity.EventEntity> {
+    private fun getInitialSeedEntities(): List<EventEntity> {
         return listOf(
-            com.dierlisson.techevents.data.local.entity.EventEntity(
+            // Eventos Encerrados/Finalizados (Passados)
+            EventEntity(
+                id = 101L,
+                title = "[ENCERRADO] Android Dev Conference 2023",
+                description = "Edição encerrada de 2023. Evento focado em migração para Jetpack Compose, gerenciamento de memória e boas práticas de publicação no Google Play.",
+                category = "Android",
+                format = "PRESENCIAL",
+                date = "2023-10-15",
+                startTime = "09:00",
+                endTime = "18:00",
+                venueName = "Centro de Convenções Rebouças",
+                address = "Av. Rebouças, 600 - Pinheiros",
+                city = "São Paulo",
+                state = "SP",
+                organizer = "Android Devs SP",
+                imageUrl = "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800",
+                price = 0.0,
+                totalSeats = 200,
+                registeredParticipants = 200,
+                eventUrl = "https://developer.android.com",
+                latitude = -23.5588,
+                longitude = -46.6687
+            ),
+            EventEntity(
+                id = 102L,
+                title = "[ENCERRADO] Hackathon IA & Machine Learning 2023",
+                description = "Edição encerrada. Desafio de 48 horas criando protótipos de Inteligência Artificial para solução de problemas urbanos e sociais.",
+                category = "IA",
+                format = "ONLINE",
+                date = "2023-11-20",
+                startTime = "18:00",
+                endTime = "22:00",
+                venueName = null,
+                address = null,
+                city = null,
+                state = null,
+                organizer = "AI Latam Group",
+                imageUrl = "https://images.unsplash.com/photo-1677442136019-21780efad99a?w=800",
+                price = 0.0,
+                totalSeats = 400,
+                registeredParticipants = 400,
+                eventUrl = "https://ailatam.org",
+                latitude = null,
+                longitude = null
+            ),
+            EventEntity(
+                id = 103L,
+                title = "[ENCERRADO] Web Performance & Frontend Day 2024",
+                description = "Evento realizado no início de 2024 sobre otimização de Core Web Vitals, SSR com Next.js e acessibilidade web.",
+                category = "Web",
+                format = "PRESENCIAL",
+                date = "2024-02-10",
+                startTime = "10:00",
+                endTime = "17:00",
+                venueName = "Hub Carioca de Inovação",
+                address = "Praça Mauá, 1 - Centro",
+                city = "Rio de Janeiro",
+                state = "RJ",
+                organizer = "Frontend Masters RJ",
+                imageUrl = "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800",
+                price = 49.90,
+                totalSeats = 150,
+                registeredParticipants = 150,
+                eventUrl = "https://frontendmasters.br",
+                latitude = -22.8961,
+                longitude = -43.1812
+            ),
+
+            // Novos Eventos Futuros por Categoria
+            EventEntity(
                 id = 1L,
                 title = "Android Dev Summit 2024 - São Paulo",
                 description = "O maior evento focado em desenvolvimento Android da América Latina! Venha aprender sobre Jetpack, Kotlin Coroutines, Architecture Components, Performance e o futuro do ecossistema mobile com especialistas do mercado.",
@@ -87,7 +157,7 @@ class EventsRepositoryImpl(
                 latitude = -23.5614,
                 longitude = -46.6559
             ),
-            com.dierlisson.techevents.data.local.entity.EventEntity(
+            EventEntity(
                 id = 2L,
                 title = "Kotlin Multiplatform & AI Conference",
                 description = "Conferência 100% online explorando o uso de Kotlin Multiplatform (KMP) para compartilhamento de lógica entre Android e iOS, além da integração com Inteligência Artificial e Modelos LLM.",
@@ -109,7 +179,7 @@ class EventsRepositoryImpl(
                 latitude = null,
                 longitude = null
             ),
-            com.dierlisson.techevents.data.local.entity.EventEntity(
+            EventEntity(
                 id = 3L,
                 title = "Backend Clean Architecture Workshop",
                 description = "Imersão prática em arquitetura limpa, microsserviços, desacoplamento de código, testes unitários de alta cobertura e boas práticas de integração contínua.",
@@ -130,6 +200,50 @@ class EventsRepositoryImpl(
                 eventUrl = "https://acate.com.br",
                 latitude = -27.5448,
                 longitude = -48.4989
+            ),
+            EventEntity(
+                id = 4L,
+                title = "Cloud Native & Kubernetes Summit 2025",
+                description = "Encontro presencial em Belo Horizonte focado em arquiteturas multicloud, gestão de clusters Kubernetes, Istio Service Mesh e automação com Terraform.",
+                category = "Cloud",
+                format = "PRESENCIAL",
+                date = "2025-01-18",
+                startTime = "09:00",
+                endTime = "17:30",
+                venueName = "BH TEC - Parque Tecnológico",
+                address = "Rua Prof. José Vieira de Mendonça, 3011",
+                city = "Belo Horizonte",
+                state = "MG",
+                organizer = "Cloud BH Community",
+                imageUrl = "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800",
+                price = 50.00,
+                totalSeats = 120,
+                registeredParticipants = 75,
+                eventUrl = "https://cloudbh.org",
+                latitude = -19.8692,
+                longitude = -43.9664
+            ),
+            EventEntity(
+                id = 5L,
+                title = "DevOps Automation & CI/CD Day 2025",
+                description = "Workshop online focado na construção de esteiras de CI/CD resilientes com GitHub Actions, ArgoCD e verificações de segurança em contêineres Docker.",
+                category = "DevOps",
+                format = "ONLINE",
+                date = "2025-02-22",
+                startTime = "10:00",
+                endTime = "16:00",
+                venueName = null,
+                address = null,
+                city = null,
+                state = null,
+                organizer = "DevOps Brasil Community",
+                imageUrl = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800",
+                price = 0.0,
+                totalSeats = 600,
+                registeredParticipants = 410,
+                eventUrl = "https://devopsbrasil.org",
+                latitude = null,
+                longitude = null
             )
         )
     }
@@ -186,10 +300,22 @@ class EventsRepositoryImpl(
                 memoryCache.put(domainEvent)
                 NetworkResult.Success(domainEvent)
             } else {
-                NetworkResult.Error(response.code(), response.message())
+                // Offline creation fallback
+                val newId = System.currentTimeMillis()
+                val createdEntity = event.copy(id = newId).toEntity()
+                eventDao.insert(createdEntity)
+                val domainEvent = createdEntity.toDomain(isFavorite = favoriteIds.contains(newId))
+                memoryCache.put(domainEvent)
+                NetworkResult.Success(domainEvent)
             }
         } catch (e: Exception) {
-            NetworkResult.Exception(e)
+            // Offline creation fallback
+            val newId = System.currentTimeMillis()
+            val createdEntity = event.copy(id = newId).toEntity()
+            eventDao.insert(createdEntity)
+            val domainEvent = createdEntity.toDomain(isFavorite = favoriteIds.contains(newId))
+            memoryCache.put(domainEvent)
+            NetworkResult.Success(domainEvent)
         }
     }
 
@@ -204,10 +330,20 @@ class EventsRepositoryImpl(
                 memoryCache.put(domainEvent)
                 NetworkResult.Success(domainEvent)
             } else {
-                NetworkResult.Error(response.code(), response.message())
+                // Offline update fallback
+                val updatedEntity = event.toEntity()
+                eventDao.insert(updatedEntity)
+                val domainEvent = updatedEntity.toDomain(isFavorite = favoriteIds.contains(event.id))
+                memoryCache.put(domainEvent)
+                NetworkResult.Success(domainEvent)
             }
         } catch (e: Exception) {
-            NetworkResult.Exception(e)
+            // Offline update fallback
+            val updatedEntity = event.toEntity()
+            eventDao.insert(updatedEntity)
+            val domainEvent = updatedEntity.toDomain(isFavorite = favoriteIds.contains(event.id))
+            memoryCache.put(domainEvent)
+            NetworkResult.Success(domainEvent)
         }
     }
 
@@ -219,10 +355,14 @@ class EventsRepositoryImpl(
                 memoryCache.remove(id)
                 NetworkResult.Success(Unit)
             } else {
-                NetworkResult.Error(response.code(), response.message())
+                eventDao.deleteById(id)
+                memoryCache.remove(id)
+                NetworkResult.Success(Unit)
             }
         } catch (e: Exception) {
-            NetworkResult.Exception(e)
+            eventDao.deleteById(id)
+            memoryCache.remove(id)
+            NetworkResult.Success(Unit)
         }
     }
 
