@@ -49,20 +49,89 @@ class EventsRepositoryImpl(
         errorMessage: String,
         throwable: Throwable? = null
     ): NetworkResult<List<Event>> {
-        val localEntities = eventDao.getAllEvents()
-        return if (localEntities.isNotEmpty()) {
-            val domainEvents = localEntities.map { entity ->
-                entity.toDomain(isFavorite = favoriteIds.contains(entity.id))
-            }
-            memoryCache.putAll(domainEvents)
-            NetworkResult.Success(domainEvents)
-        } else {
-            if (throwable != null) {
-                NetworkResult.Exception(throwable)
-            } else {
-                NetworkResult.Error(errorCode, errorMessage)
-            }
+        var localEntities = eventDao.getAllEvents()
+        if (localEntities.isEmpty()) {
+            val seedEntities = getInitialSeedEntities()
+            eventDao.insertAll(seedEntities)
+            localEntities = eventDao.getAllEvents()
         }
+
+        val domainEvents = localEntities.map { entity ->
+            entity.toDomain(isFavorite = favoriteIds.contains(entity.id))
+        }
+        memoryCache.putAll(domainEvents)
+        return NetworkResult.Success(domainEvents)
+    }
+
+    private fun getInitialSeedEntities(): List<com.dierlisson.techevents.data.local.entity.EventEntity> {
+        return listOf(
+            com.dierlisson.techevents.data.local.entity.EventEntity(
+                id = 1L,
+                title = "Android Dev Summit 2024 - São Paulo",
+                description = "O maior evento focado em desenvolvimento Android da América Latina! Venha aprender sobre Jetpack, Kotlin Coroutines, Architecture Components, Performance e o futuro do ecossistema mobile com especialistas do mercado.",
+                category = "Android",
+                format = "PRESENCIAL",
+                date = "2024-11-15",
+                startTime = "09:00",
+                endTime = "18:00",
+                venueName = "Centro de Convenções Fiesp",
+                address = "Av. Paulista, 1578 - Bela Vista",
+                city = "São Paulo",
+                state = "SP",
+                organizer = "GDG São Paulo",
+                imageUrl = "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800",
+                price = 0.0,
+                totalSeats = 250,
+                registeredParticipants = 185,
+                eventUrl = "https://developer.android.com",
+                latitude = -23.5614,
+                longitude = -46.6559
+            ),
+            com.dierlisson.techevents.data.local.entity.EventEntity(
+                id = 2L,
+                title = "Kotlin Multiplatform & AI Conference",
+                description = "Conferência 100% online explorando o uso de Kotlin Multiplatform (KMP) para compartilhamento de lógica entre Android e iOS, além da integração com Inteligência Artificial e Modelos LLM.",
+                category = "Kotlin",
+                format = "ONLINE",
+                date = "2024-11-20",
+                startTime = "19:00",
+                endTime = "22:00",
+                venueName = null,
+                address = null,
+                city = null,
+                state = null,
+                organizer = "Kotlin Brasil",
+                imageUrl = "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800",
+                price = 0.0,
+                totalSeats = 500,
+                registeredParticipants = 340,
+                eventUrl = "https://kotlinlang.org",
+                latitude = null,
+                longitude = null
+            ),
+            com.dierlisson.techevents.data.local.entity.EventEntity(
+                id = 3L,
+                title = "Backend Clean Architecture Workshop",
+                description = "Imersão prática em arquitetura limpa, microsserviços, desacoplamento de código, testes unitários de alta cobertura e boas práticas de integração contínua.",
+                category = "Backend",
+                format = "PRESENCIAL",
+                date = "2024-12-05",
+                startTime = "14:00",
+                endTime = "19:00",
+                venueName = "ACATE Tech Park",
+                address = "Rod. SC-401, 4100 - Saco Grande",
+                city = "Florianópolis",
+                state = "SC",
+                organizer = "DevsSC",
+                imageUrl = "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800",
+                price = 89.90,
+                totalSeats = 80,
+                registeredParticipants = 62,
+                eventUrl = "https://acate.com.br",
+                latitude = -27.5448,
+                longitude = -48.4989
+            )
+        )
     }
 
     override suspend fun getEventById(id: Long): NetworkResult<Event> {
