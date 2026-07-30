@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Details -->
+    <string name="app_name">Tech Events</string>
+    <string name="splash_subtitle">Encontre meetups e workshops de programação</string>
+
+    <!-- General Labels -->
+    <string name="loading">Carregando...</string>
+    <string name="retry">Tentar novamente</string>
+    <string name="clear_filters">Limpar filtros</string>
+    <string name="error_generic">Ocorreu um erro ao carregar os dados.</string>
+    <string name="error_offline">Você está offline. Exibindo dados salvos.</string>
+    <string name="empty_events_title">Nenhum evento encontrado</string>
+    <string name="empty_events_subtitle">Tente ajustar seus termos de busca ou filtros aplicados.</string>
+
+    <!-- Filter & Categories -->
+    <string name="section_categories">CATEGORIAS</string>
+    <string name="section_format">FORMATO</string>
+    <string name="section_sort">ORDENAÇÃO</string>
+    <string name="search_hint">Buscar eventos, cidades, tecnologias...</string>
+
+    <!-- Sort Options -->
+    <string name="sort_nearest_date">Data mais próxima</string>
+    <string name="sort_name">Nome</string>
+    <string name="sort_most_registered">Mais inscritos</string>
+
+    <!-- Formats -->
+    <string name="format_all">Todos</string>
+    <string name="format_online">Online</string>
+    <string name="format_presencial">Presencial</string>
+
+    <!-- Categories -->
+    <string name="category_all">Todos</string>
+    <string name="category_android">Android</string>
+    <string name="category_kotlin">Kotlin</string>
+    <string name="category_backend">Backend</string>
+    <string name="category_web">Web</string>
+    <string name="category_ia">IA</string>
+    <string name="category_cloud">Cloud</string>
+    <string name="category_devops">DevOps</string>
+
+    <!-- Price -->
+    <string name="price_free">Grátis</string>
+    <string name="favorites_only">Somente Favoritos</string>
+</resources>

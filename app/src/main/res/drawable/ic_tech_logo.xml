@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+
+    <!-- Rounded Square Background -->
+    <path
+        android:fillColor="#1E88E5"
+        android:pathData="M20,10 L100,10 A10,10 0,0,1 110,20 L110,100 A10,10 0,0,1 100,110 L20,110 A10,10 0,0,1 10,100 L10,20 A10,10 0,0,1 20,10 Z" />
+
+    <!-- Code brackets </ > -->
+    <path
+        android:pathData="M35,45 L25,55 L35,65"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"/>
+
+    <path
+        android:pathData="M85,45 L95,55 L85,65"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"/>
+
+    <!-- Calendar background card -->
+    <path
+        android:fillColor="#7B1FA2"
+        android:pathData="M45,35 L75,35 A5,5 0,0,1 80,40 L80,85 A5,5 0,0,1 75,90 L45,90 A5,5 0,0,1 40,85 L40,40 A5,5 0,0,1 45,35 Z" />
+
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:pathData="M40,50 L80,50" />
+
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:pathData="M50,30 L50,38 M70,30 L70,38" />
+
+    <!-- Calendar dots as path squares/circles -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M50,60 h4 v4 h-4 z M66,60 h4 v4 h-4 z M50,73 h4 v4 h-4 z M66,73 h4 v4 h-4 z" />
+
+</vector>

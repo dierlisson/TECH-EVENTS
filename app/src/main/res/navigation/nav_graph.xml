@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.dierlisson.techevents.presentation.splash.SplashFragment"
+        android:label="Splash"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_eventsListFragment"
+            app:destination="@id/eventsListFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/eventsListFragment"
+        android:name="com.dierlisson.techevents.presentation.events.list.EventsListFragment"
+        android:label="Tech Events"
+        tools:layout="@layout/fragment_events_list">
+        <action
+            android:id="@+id/action_eventsListFragment_to_eventDetailFragment"
+            app:destination="@id/eventDetailFragment" />
+        <action
+            android:id="@+id/action_eventsListFragment_to_eventFormFragment"
+            app:destination="@id/eventFormFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/eventDetailFragment"
+        android:name="com.dierlisson.techevents.presentation.events.detail.EventDetailFragment"
+        android:label="Detalhes do Evento"
+        tools:layout="@layout/fragment_event_detail">
+        <argument
+            android:name="eventId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_eventDetailFragment_to_eventFormFragment"
+            app:destination="@id/eventFormFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/eventFormFragment"
+        android:name="com.dierlisson.techevents.presentation.events.form.EventFormFragment"
+        android:label="Evento"
+        tools:layout="@layout/fragment_event_form">
+        <argument
+            android:name="eventId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+    </fragment>
+
+</navigation>
