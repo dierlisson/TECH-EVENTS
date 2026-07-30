@@ -50,7 +50,13 @@ class EventsListFragment : Fragment() {
         setupFab()
         setupErrorRetryButtons()
 
+        checkNetworkAndShowBanner()
         observeViewModel()
+    }
+
+    private fun checkNetworkAndShowBanner() {
+        val isConnected = com.dierlisson.techevents.core.util.NetworkUtils.isNetworkAvailable(requireContext())
+        binding.tvOfflineBanner.visibility = if (!isConnected) View.VISIBLE else View.GONE
     }
 
     private fun setupRecyclerView() {
