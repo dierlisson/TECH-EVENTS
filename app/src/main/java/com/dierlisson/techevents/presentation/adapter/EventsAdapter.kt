@@ -77,6 +77,9 @@ class EventsAdapter(
         fun bind(event: Event) {
             binding.tvEventTitle.text = event.title
             binding.tvCategoryChip.text = event.category
+            binding.tvCategoryChip.setBackgroundResource(
+                com.dierlisson.techevents.core.util.CategoryUtils.getCategoryBackgroundRes(event.category, event.title, event.date)
+            )
             binding.tvEventOrganizer.text = event.organizer
 
             // Format Location

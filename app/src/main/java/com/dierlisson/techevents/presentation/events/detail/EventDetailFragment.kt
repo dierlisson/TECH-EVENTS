@@ -102,6 +102,9 @@ class EventDetailFragment : Fragment() {
     private fun bindEventDetails(event: Event) {
         binding.tvDetailTitle.text = event.title
         binding.tvDetailCategoryBadge.text = event.category
+        binding.tvDetailCategoryBadge.setBackgroundResource(
+            com.dierlisson.techevents.core.util.CategoryUtils.getCategoryBackgroundRes(event.category, event.title, event.date)
+        )
         binding.tvDetailFormatBadge.text = event.format
         binding.tvDetailDescription.text = event.description
         binding.tvDetailOrganizer.text = "Organizador: ${event.organizer}"
