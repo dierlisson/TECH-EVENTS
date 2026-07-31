@@ -23,9 +23,13 @@ O **Tech Events** foi construído do zero com arquitetura limpa e escalável bas
 
 ---
 
-## 📸 Referência Visual & Recursos de UI
+## 📸 Referência Visual & Demonstração
 
-- **Header Colapsável**: Ao rolar a lista de eventos para baixo, a barra de busca e os menus de filtro encolhem suavemente para maximizar a área de leitura. Ao rolar para cima, reaparecem instantaneamente.
+<p align="center">
+  <img src="docs/screenshots/demo.gif" width="320" alt="Demonstração do Tech Events em Ação" />
+</p>
+
+O design visual reproduz com fidelidade a identidade do projeto:
 - **Chips de Categoria com Cores Tecnológicas**:
   - 🟢 **Android**: Gradiente verde (`#1B5E20` $\rightarrow$ `#3DDC84`).
   - 🟣 **Kotlin**: Gradiente roxo-magenta (`#7F52FF` $\rightarrow$ `#C711E1`).
