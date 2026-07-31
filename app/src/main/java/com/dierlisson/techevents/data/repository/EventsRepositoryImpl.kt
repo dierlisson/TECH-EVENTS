@@ -66,14 +66,14 @@ class EventsRepositoryImpl(
 
     private fun getInitialSeedEntities(): List<EventEntity> {
         return listOf(
-            // Eventos Encerrados/Finalizados (Passados)
+            // Eventos Encerrados/Finalizados (Passados em relação a 30/07/2026)
             EventEntity(
                 id = 101L,
-                title = "[ENCERRADO] Android Dev Conference 2023",
-                description = "Edição encerrada de 2023. Evento focado em migração para Jetpack Compose, gerenciamento de memória e boas práticas de publicação no Google Play.",
+                title = "[ENCERRADO] Android Dev Conference 2025",
+                description = "Edição encerrada em 2025. Evento focado em migração para Jetpack Compose, gerenciamento de memória e boas práticas de publicação no Google Play.",
                 category = "Android",
                 format = "PRESENCIAL",
-                date = "2023-10-15",
+                date = "2025-10-15",
                 startTime = "09:00",
                 endTime = "18:00",
                 venueName = "Centro de Convenções Rebouças",
@@ -91,11 +91,11 @@ class EventsRepositoryImpl(
             ),
             EventEntity(
                 id = 102L,
-                title = "[ENCERRADO] Hackathon IA & Machine Learning 2023",
-                description = "Edição encerrada. Desafio de 48 horas criando protótipos de Inteligência Artificial para solução de problemas urbanos e sociais.",
+                title = "[ENCERRADO] Hackathon IA & Machine Learning 2025",
+                description = "Edição encerrada em 2025. Desafio de 48 horas criando protótipos de Inteligência Artificial para solução de problemas urbanos e sociais.",
                 category = "IA",
                 format = "ONLINE",
-                date = "2023-11-20",
+                date = "2025-11-20",
                 startTime = "18:00",
                 endTime = "22:00",
                 venueName = null,
@@ -113,11 +113,11 @@ class EventsRepositoryImpl(
             ),
             EventEntity(
                 id = 103L,
-                title = "[ENCERRADO] Web Performance & Frontend Day 2024",
-                description = "Evento realizado no início de 2024 sobre otimização de Core Web Vitals, SSR com Next.js e acessibilidade web.",
+                title = "[ENCERRADO] Web Performance & Frontend Day 2026",
+                description = "Edição realizada no início de 2026 sobre otimização de Core Web Vitals, SSR com Next.js e acessibilidade web.",
                 category = "Web",
                 format = "PRESENCIAL",
-                date = "2024-02-10",
+                date = "2026-03-10",
                 startTime = "10:00",
                 endTime = "17:00",
                 venueName = "Hub Carioca de Inovação",
@@ -134,14 +134,14 @@ class EventsRepositoryImpl(
                 longitude = -43.1812
             ),
 
-            // Novos Eventos Futuros por Categoria
+            // Novos Eventos Futuros (Futuros em relação a 30/07/2026)
             EventEntity(
                 id = 1L,
-                title = "Android Dev Summit 2024 - São Paulo",
+                title = "Android Dev Summit 2026 - São Paulo",
                 description = "O maior evento focado em desenvolvimento Android da América Latina! Venha aprender sobre Jetpack, Kotlin Coroutines, Architecture Components, Performance e o futuro do ecossistema mobile com especialistas do mercado.",
                 category = "Android",
                 format = "PRESENCIAL",
-                date = "2024-11-15",
+                date = "2026-08-15",
                 startTime = "09:00",
                 endTime = "18:00",
                 venueName = "Centro de Convenções Fiesp",
@@ -159,11 +159,11 @@ class EventsRepositoryImpl(
             ),
             EventEntity(
                 id = 2L,
-                title = "Kotlin Multiplatform & AI Conference",
+                title = "Kotlin Multiplatform & AI Conference 2026",
                 description = "Conferência 100% online explorando o uso de Kotlin Multiplatform (KMP) para compartilhamento de lógica entre Android e iOS, além da integração com Inteligência Artificial e Modelos LLM.",
                 category = "Kotlin",
                 format = "ONLINE",
-                date = "2024-11-20",
+                date = "2026-09-10",
                 startTime = "19:00",
                 endTime = "22:00",
                 venueName = null,
@@ -185,7 +185,7 @@ class EventsRepositoryImpl(
                 description = "Imersão prática em arquitetura limpa, microsserviços, desacoplamento de código, testes unitários de alta cobertura e boas práticas de integração contínua.",
                 category = "Backend",
                 format = "PRESENCIAL",
-                date = "2024-12-05",
+                date = "2026-10-05",
                 startTime = "14:00",
                 endTime = "19:00",
                 venueName = "ACATE Tech Park",
@@ -203,11 +203,11 @@ class EventsRepositoryImpl(
             ),
             EventEntity(
                 id = 4L,
-                title = "Cloud Native & Kubernetes Summit 2025",
+                title = "Cloud Native & Kubernetes Summit 2026",
                 description = "Encontro presencial em Belo Horizonte focado em arquiteturas multicloud, gestão de clusters Kubernetes, Istio Service Mesh e automação com Terraform.",
                 category = "Cloud",
                 format = "PRESENCIAL",
-                date = "2025-01-18",
+                date = "2026-11-12",
                 startTime = "09:00",
                 endTime = "17:30",
                 venueName = "BH TEC - Parque Tecnológico",
@@ -225,11 +225,11 @@ class EventsRepositoryImpl(
             ),
             EventEntity(
                 id = 5L,
-                title = "DevOps Automation & CI/CD Day 2025",
+                title = "DevOps Automation & CI/CD Day 2026",
                 description = "Workshop online focado na construção de esteiras de CI/CD resilientes com GitHub Actions, ArgoCD e verificações de segurança em contêineres Docker.",
                 category = "DevOps",
                 format = "ONLINE",
-                date = "2025-02-22",
+                date = "2026-12-01",
                 startTime = "10:00",
                 endTime = "16:00",
                 venueName = null,
@@ -244,6 +244,50 @@ class EventsRepositoryImpl(
                 eventUrl = "https://devopsbrasil.org",
                 latitude = null,
                 longitude = null
+            ),
+            EventEntity(
+                id = 6L,
+                title = "IA Generativa & Agentes Autônomos Summit 2027",
+                description = "Desenvolvimento avançado de sistemas multi-agente, modelos LLM locais e integração com aplicações móveis.",
+                category = "IA",
+                format = "ONLINE",
+                date = "2027-01-15",
+                startTime = "19:00",
+                endTime = "22:00",
+                venueName = null,
+                address = null,
+                city = null,
+                state = null,
+                organizer = "AI South America",
+                imageUrl = "https://images.unsplash.com/photo-1677442136019-21780efad99a?w=800",
+                price = 0.0,
+                totalSeats = 1000,
+                registeredParticipants = 650,
+                eventUrl = "https://aisouthamerica.org",
+                latitude = null,
+                longitude = null
+            ),
+            EventEntity(
+                id = 7L,
+                title = "Modern Web & Performance Conference 2027",
+                description = "Conferência presencial reunindo desenvolvedores frontend e engenheiros web para discutir o futuro dos browsers e otimização de performance.",
+                category = "Web",
+                format = "PRESENCIAL",
+                date = "2027-02-20",
+                startTime = "09:00",
+                endTime = "18:00",
+                venueName = "Lobo Coworking Curitiba",
+                address = "Rua São Pedro, 460 - Cabral",
+                city = "Curitiba",
+                state = "PR",
+                organizer = "Frontend Brasil",
+                imageUrl = "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800",
+                price = 120.00,
+                totalSeats = 180,
+                registeredParticipants = 110,
+                eventUrl = "https://frontendbrasil.dev",
+                latitude = -25.4123,
+                longitude = -49.2567
             )
         )
     }
@@ -300,7 +344,6 @@ class EventsRepositoryImpl(
                 memoryCache.put(domainEvent)
                 NetworkResult.Success(domainEvent)
             } else {
-                // Offline creation fallback
                 val newId = System.currentTimeMillis()
                 val createdEntity = event.copy(id = newId).toEntity()
                 eventDao.insert(createdEntity)
@@ -309,7 +352,6 @@ class EventsRepositoryImpl(
                 NetworkResult.Success(domainEvent)
             }
         } catch (e: Exception) {
-            // Offline creation fallback
             val newId = System.currentTimeMillis()
             val createdEntity = event.copy(id = newId).toEntity()
             eventDao.insert(createdEntity)
@@ -330,7 +372,6 @@ class EventsRepositoryImpl(
                 memoryCache.put(domainEvent)
                 NetworkResult.Success(domainEvent)
             } else {
-                // Offline update fallback
                 val updatedEntity = event.toEntity()
                 eventDao.insert(updatedEntity)
                 val domainEvent = updatedEntity.toDomain(isFavorite = favoriteIds.contains(event.id))
@@ -338,7 +379,6 @@ class EventsRepositoryImpl(
                 NetworkResult.Success(domainEvent)
             }
         } catch (e: Exception) {
-            // Offline update fallback
             val updatedEntity = event.toEntity()
             eventDao.insert(updatedEntity)
             val domainEvent = updatedEntity.toDomain(isFavorite = favoriteIds.contains(event.id))
@@ -375,7 +415,6 @@ class EventsRepositoryImpl(
         }
         val newFavState = !isFav
 
-        // Update memory cache
         val cached = memoryCache.get(eventId)
         if (cached != null) {
             memoryCache.put(cached.copy(isFavorite = newFavState))
