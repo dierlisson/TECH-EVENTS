@@ -229,7 +229,11 @@ class EventsListViewModel(
         }
 
         // 2. Category Filter
-        if (state.selectedCategory != "Todos") {
+        if (state.selectedCategory.equals("Encerrados", ignoreCase = true)) {
+            filtered = filtered.filter {
+                it.title.contains("[ENCERRADO]", ignoreCase = true) || it.date < "2026-07-30"
+            }
+        } else if (state.selectedCategory != "Todos") {
             filtered = filtered.filter {
                 it.category.equals(state.selectedCategory, ignoreCase = true)
             }
@@ -274,6 +278,14 @@ class EventsListViewModel(
                     Long.MAX_VALUE
                 }
             }
+        }
+
+        // 6. Push Ended / Past events to the end of the list (unless specifically filtering for Encerrados / Finalizados)
+        if (state.selectedCategory != "Encerrados" && state.selectedFormat.uppercase() != "FINALIZADOS") {
+            val (upcomingEvents, endedEvents) = filtered.partition { event ->
+                !event.title.contains("[ENCERRADO]", ignoreCase = true) && event.date >= "2026-07-30"
+            }
+            filtered = upcomingEvents + endedEvents
         }
 
         return state.copy(filteredEvents = filtered)

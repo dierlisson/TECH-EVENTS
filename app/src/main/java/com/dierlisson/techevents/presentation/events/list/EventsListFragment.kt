@@ -125,6 +125,7 @@ class EventsListFragment : Fragment() {
                 R.id.chipCategoryIA -> "IA"
                 R.id.chipCategoryCloud -> "Cloud"
                 R.id.chipCategoryDevOps -> "DevOps"
+                R.id.chipCategoryEncerrados -> "Encerrados"
                 else -> "Todos"
             }
             viewModel.onCategorySelected(category)
