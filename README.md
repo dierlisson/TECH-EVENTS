@@ -178,9 +178,7 @@ A URL base da API é definida no arquivo `app/build.gradle.kts` via `BuildConfig
 
 ---
 
-## 👨‍💻 Autor e Licença
+## 👨‍💻 Autor
 
 **Dierlisson Justiniano**
-- GitHub: [@dierlisson](https://github.com/dierlisson)
 
-Este projeto está sob a licença [MIT](LICENSE).
