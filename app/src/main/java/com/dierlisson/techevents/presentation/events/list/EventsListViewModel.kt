@@ -235,10 +235,25 @@ class EventsListViewModel(
             }
         }
 
-        // 3. Format Filter
-        if (state.selectedFormat != "Todos") {
-            filtered = filtered.filter {
-                it.format.equals(state.selectedFormat, ignoreCase = true)
+        // 3. Format & Status Filter
+        when (state.selectedFormat.uppercase()) {
+            "PRESENCIAL" -> {
+                filtered = filtered.filter {
+                    it.format.equals("PRESENCIAL", ignoreCase = true)
+                }
+            }
+            "ONLINE" -> {
+                filtered = filtered.filter {
+                    it.format.equals("ONLINE", ignoreCase = true)
+                }
+            }
+            "FINALIZADOS" -> {
+                filtered = filtered.filter {
+                    it.title.contains("[ENCERRADO]", ignoreCase = true) || it.date < "2026-07-30"
+                }
+            }
+            else -> { // "TODOS"
+                // No format filter
             }
         }
 

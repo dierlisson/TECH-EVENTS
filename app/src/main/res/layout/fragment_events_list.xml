@@ -235,53 +235,66 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/scrollCategories" />
 
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chipGroupFormat"
-                android:layout_width="wrap_content"
+            <!-- Format & Status Horizontal Scroll -->
+            <HorizontalScrollView
+                android:id="@+id/scrollFormats"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="4dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvFormatLabel"
-                app:singleLine="true"
-                app:singleSelection="true">
+                android:clipToPadding="false"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:scrollbars="none"
+                app:layout_constraintTop_toBottomOf="@id/tvFormatLabel">
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipFormatAll"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipGroupFormat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:text="@string/format_all" />
+                    app:singleLine="true"
+                    app:singleSelection="true">
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipFormatPresencial"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/format_presencial" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFormatAll"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/format_all" />
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipFormatOnline"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/format_online" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFormatPresencial"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/format_presencial" />
 
-            </com.google.android.material.chip.ChipGroup>
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFormatOnline"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/format_online" />
 
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipFavoritesOnly"
-                style="@style/Widget.MaterialComponents.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:text="@string/favorites_only"
-                app:chipIcon="@drawable/ic_favorite"
-                app:chipIconTint="@color/favorite_red"
-                app:layout_constraintBottom_toBottomOf="@id/chipGroupFormat"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/chipGroupFormat" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFormatFavorites"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/favorites_only"
+                        app:chipIcon="@drawable/ic_favorite"
+                        app:chipIconTint="@color/favorite_red" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFormatFinished"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Finalizados" />
+
+                </com.google.android.material.chip.ChipGroup>
+
+            </HorizontalScrollView>
 
             <!-- Main Content Container: RecyclerView & States -->
             <FrameLayout
@@ -291,7 +304,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/chipGroupFormat">
+                app:layout_constraintTop_toBottomOf="@id/scrollFormats">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvEventsList"

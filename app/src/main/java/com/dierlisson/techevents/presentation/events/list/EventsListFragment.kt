@@ -137,16 +137,22 @@ class EventsListFragment : Fragment() {
             val format = when (checkedIds.first()) {
                 R.id.chipFormatPresencial -> "Presencial"
                 R.id.chipFormatOnline -> "Online"
+                R.id.chipFormatFavorites -> "Favoritos"
+                R.id.chipFormatFinished -> "Finalizados"
                 else -> "Todos"
             }
-            viewModel.onFormatSelected(format)
+            if (format == "Favoritos") {
+                viewModel.onFavoritesOnlyToggled(true)
+                viewModel.onFormatSelected("Todos")
+            } else {
+                viewModel.onFavoritesOnlyToggled(false)
+                viewModel.onFormatSelected(format)
+            }
         }
     }
 
     private fun setupFavoritesChip() {
-        binding.chipFavoritesOnly.setOnCheckedChangeListener { _, isChecked ->
-            viewModel.onFavoritesOnlyToggled(isChecked)
-        }
+        // Handled via chipFormatFavorites in chipGroupFormat
     }
 
     private fun setupSortButton() {
@@ -181,7 +187,6 @@ class EventsListFragment : Fragment() {
             binding.etSearchQuery.setText("")
             binding.chipCategoryAll.isChecked = true
             binding.chipFormatAll.isChecked = true
-            binding.chipFavoritesOnly.isChecked = false
             viewModel.clearFilters()
         }
     }
