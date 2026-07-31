@@ -135,21 +135,34 @@ class EventsListFragment : Fragment() {
     }
 
     private fun applyCategoryChipStyles() {
-        val categoryChips = listOf(
-            binding.chipCategoryAndroid to R.drawable.bg_category_android,
-            binding.chipCategoryKotlin to R.drawable.bg_category_kotlin,
-            binding.chipCategoryBackend to R.drawable.bg_category_backend,
-            binding.chipCategoryWeb to R.drawable.bg_category_web,
-            binding.chipCategoryIA to R.drawable.bg_category_ia,
-            binding.chipCategoryCloud to R.drawable.bg_category_cloud,
-            binding.chipCategoryDevOps to R.drawable.bg_category_devops,
-            binding.chipCategoryEncerrados to R.drawable.bg_category_encerrados
+        val categoryChipColors = listOf(
+            binding.chipCategoryAll to Pair(android.graphics.Color.parseColor("#37474F"), android.graphics.Color.parseColor("#ECEFF1")),
+            binding.chipCategoryAndroid to Pair(android.graphics.Color.parseColor("#1B5E20"), android.graphics.Color.parseColor("#E8F5E9")),
+            binding.chipCategoryKotlin to Pair(android.graphics.Color.parseColor("#7F52FF"), android.graphics.Color.parseColor("#F3E5F5")),
+            binding.chipCategoryBackend to Pair(android.graphics.Color.parseColor("#1A237E"), android.graphics.Color.parseColor("#E8EAF6")),
+            binding.chipCategoryWeb to Pair(android.graphics.Color.parseColor("#006064"), android.graphics.Color.parseColor("#E0F7FA")),
+            binding.chipCategoryIA to Pair(android.graphics.Color.parseColor("#4A148C"), android.graphics.Color.parseColor("#F3E5F5")),
+            binding.chipCategoryCloud to Pair(android.graphics.Color.parseColor("#01579B"), android.graphics.Color.parseColor("#E1F5FE")),
+            binding.chipCategoryDevOps to Pair(android.graphics.Color.parseColor("#E65100"), android.graphics.Color.parseColor("#FFF3E0")),
+            binding.chipCategoryEncerrados to Pair(android.graphics.Color.parseColor("#37474F"), android.graphics.Color.parseColor("#ECEFF1"))
         )
 
-        categoryChips.forEach { (chip, drawableRes) ->
-            chip.chipBackgroundColor = null
-            chip.setBackgroundResource(drawableRes)
-            chip.setTextColor(android.graphics.Color.WHITE)
+        categoryChipColors.forEach { (chip, colorPair) ->
+            val mainColor = colorPair.first
+            val lightBgColor = colorPair.second
+
+            val states = arrayOf(
+                intArrayOf(android.R.attr.state_checked),
+                intArrayOf(-android.R.attr.state_checked)
+            )
+            val bgColors = intArrayOf(mainColor, lightBgColor)
+            val textColors = intArrayOf(android.graphics.Color.WHITE, mainColor)
+            val tintColors = intArrayOf(android.graphics.Color.WHITE, mainColor)
+
+            chip.chipBackgroundColor = android.content.res.ColorStateList(states, bgColors)
+            chip.setTextColor(android.content.res.ColorStateList(states, textColors))
+            chip.chipIconTint = android.content.res.ColorStateList(states, tintColors)
+            chip.checkedIconTint = android.content.res.ColorStateList(states, tintColors)
             chip.chipStrokeWidth = 0f
         }
     }
