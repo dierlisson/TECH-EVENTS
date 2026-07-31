@@ -16,7 +16,7 @@ class SplashViewModel : ViewModel() {
         startSplashTimer()
     }
 
-    
+
     private fun startSplashTimer() {
         viewModelScope.launch {
             delay(1200L) // 1.2s preparation delay
