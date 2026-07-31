@@ -115,6 +115,8 @@ class EventsListFragment : Fragment() {
     }
 
     private fun setupCategoryChips() {
+        applyCategoryChipStyles()
+
         binding.chipGroupCategory.setOnCheckedStateChangeListener { _, checkedIds ->
             if (checkedIds.isEmpty()) return@setOnCheckedStateChangeListener
             val category = when (checkedIds.first()) {
@@ -129,6 +131,26 @@ class EventsListFragment : Fragment() {
                 else -> "Todos"
             }
             viewModel.onCategorySelected(category)
+        }
+    }
+
+    private fun applyCategoryChipStyles() {
+        val categoryChips = listOf(
+            binding.chipCategoryAndroid to R.drawable.bg_category_android,
+            binding.chipCategoryKotlin to R.drawable.bg_category_kotlin,
+            binding.chipCategoryBackend to R.drawable.bg_category_backend,
+            binding.chipCategoryWeb to R.drawable.bg_category_web,
+            binding.chipCategoryIA to R.drawable.bg_category_ia,
+            binding.chipCategoryCloud to R.drawable.bg_category_cloud,
+            binding.chipCategoryDevOps to R.drawable.bg_category_devops,
+            binding.chipCategoryEncerrados to R.drawable.bg_category_encerrados
+        )
+
+        categoryChips.forEach { (chip, drawableRes) ->
+            chip.chipBackgroundColor = null
+            chip.setBackgroundResource(drawableRes)
+            chip.setTextColor(android.graphics.Color.WHITE)
+            chip.chipStrokeWidth = 0f
         }
     }
 
