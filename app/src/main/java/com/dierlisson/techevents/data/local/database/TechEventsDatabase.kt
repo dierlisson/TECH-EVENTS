@@ -11,7 +11,7 @@ import com.dierlisson.techevents.data.local.entity.FavoriteEntity
 
 @Database(
     entities = [EventEntity::class, FavoriteEntity::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class TechEventsDatabase : RoomDatabase() {

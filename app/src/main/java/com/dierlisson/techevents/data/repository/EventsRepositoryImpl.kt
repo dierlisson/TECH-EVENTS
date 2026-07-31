@@ -51,8 +51,11 @@ class EventsRepositoryImpl(
         throwable: Throwable? = null
     ): NetworkResult<List<Event>> {
         var localEntities = eventDao.getAllEvents()
-        if (localEntities.isEmpty()) {
-            val seedEntities = getInitialSeedEntities()
+        val seedEntities = getInitialSeedEntities()
+        val existingIds = localEntities.map { it.id }.toSet()
+        val missingSeeds = seedEntities.filter { !existingIds.contains(it.id) }
+
+        if (missingSeeds.isNotEmpty()) {
             eventDao.insertAll(seedEntities)
             localEntities = eventDao.getAllEvents()
         }
