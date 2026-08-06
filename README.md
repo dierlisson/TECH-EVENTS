@@ -1,4 +1,4 @@
-# 📱 Tech Events — Aplicativo Android Nativo
+# 📱 TechEvents — Aplicativo Android Nativo
 
 > **Aplicativo nativo para Android em Kotlin projetado para portfólio profissional, focado na descoberta, filtragem, consulta de detalhes, gerenciamento completo (CRUD) e favoritos de eventos de tecnologia.**
 
