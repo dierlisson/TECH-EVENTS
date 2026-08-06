@@ -9,6 +9,17 @@
 
 ---
 
+## ⚡ Resumo em 30 segundos
+
+- Aplicativo Android nativo desenvolvido em Kotlin e XML.
+- Arquitetura MVVM com Repository Pattern.
+- Persistência offline com Room Database.
+- Integração REST com Retrofit e API mock em Node.js.
+- Paginação, busca, filtros, favoritos e CRUD completo.
+- Testes automatizados com JUnit, Mockito e MockWebServer.
+
+---
+
 ## 🎯 Objetivo do Projeto
 
 O **Tech Events** foi construído do zero com arquitetura limpa e escalável baseada em **MVVM + Repository Pattern**, priorizando boas práticas da engenharia Android moderna:
@@ -129,8 +140,8 @@ com.dierlisson.techevents
 ### 1. Clonar o Repositório
 
 ```bash
-git clone https://github.com/dierlisson/TECH-EVENTS.git
-cd TECH-EVENTS
+git clone https://github.com/dierlisson/TechEvents.git
+cd TechEvents
 ```
 
 ### 2. (Opcional) Iniciar a API Mock Local em Node.js
@@ -157,7 +168,7 @@ A URL base da API é definida no arquivo `app/build.gradle.kts` via `BuildConfig
 # Compilar projeto em modo Debug
 .\gradlew.bat assembleDebug
 
-# Executar a suíte de testes unitários (100% aprovados)
+# Executar a suíte de testes unitários
 .\gradlew.bat testDebugUnitTest
 ```
 
@@ -181,4 +192,9 @@ A URL base da API é definida no arquivo `app/build.gradle.kts` via `BuildConfig
 ## 👨‍💻 Autor
 
 **Dierlisson Justiniano**
+
+## 📬 Contato
+
+- LinkedIn: https://www.linkedin.com/in/dierlissonjustiniano/
+- GitHub: https://github.com/dierlisson
 
